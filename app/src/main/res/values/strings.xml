@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">BMI Calculator</string>
+
+    <string name="app_title">@string/app_name</string>
+    <string name="description_app_title">\@string/app_title</string>
+
+    <string name="unit_system_title">Unit System</string>
+    <string name="description_unit_system">unit system title</string>
+    <string name="radioBtn_metric">Metric</string>
+    <string name="radioBtn_imperial">Imperial</string>
+    <string name="description_radioBtn_metric">metric radio button</string>
+    <string name="description_radioBtn_imperial">imperial radio button</string>
+
+<!--    Gender selector section-->
+    <string name="gender_select">Gender:</string>
+    <string name="description_gender_select">gender select title</string>
+    <string name="radioBtn_male">Male</string>
+    <string name="description_radioBtn_male">male radio button</string>
+    <string name="radioBtn_female">Female</string>
+    <string name="description_radioBtn_female">female radio button</string>
+    <string name="radioBtn_other">Other</string>
+    <string name="description_radioBtn_other">other radio button</string>
+
+<!--    Height input section-->
+    <string name="height_input">Height:</string>
+    <string name="description_height_input">Height input field</string>
+    <string name="major_height_input">m</string>
+    <string name="minor_height_input">cm</string>
+
+<!--    Weight input section-->
+    <string name="weight_input">Weight:</string>
+    <string name="description_weight_input">weight input title</string>
+    <string name="weight_unit">kg</string>
+
+<!--    Buttons-->
+    <string name="calculate">Calculate</string>
+    <string name="description_calculate_button">calculate button</string>
+    <string name="reset">Reset</string>
+    <string name="description_reset_button">reset button\n</string>
+
+<!--    Result section-->
+    <string name="result_value">26</string>
+    <string name="description_result_value">result value</string>
+    <string name="result_description">You are a healthy weight</string>
+    <string name="description_result_description">result description</string>
+</resources>
