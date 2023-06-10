@@ -14,7 +14,7 @@ This is the first android app I have developed. It is a simple BMI calculator th
 ## Technologies Used
 
 - **Kotlin:** The app is completely written in Kotlin.
-- **Android SDK:** Used to create the user interface and handle user interaction.
+- **XML layouts:** Used to create the user interface and handle user interaction.
 
 ## Screenshots (might be outdated)
 
