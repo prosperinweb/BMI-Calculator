@@ -8,7 +8,7 @@ This is the first android app I have developed. It is a simple BMI calculator th
 
 - Support for both Metric and Imperial systems.
 - BMI categorization based on the World Health Organization's data.
-- Gender-based evaluation of BMI.
+- Asian descent evaluation of BMI.
 - User-friendly interface with error checking for invalid inputs.
 
 ## Technologies Used
@@ -16,9 +16,20 @@ This is the first android app I have developed. It is a simple BMI calculator th
 - **Kotlin:** The app is completely written in Kotlin.
 - **Android SDK:** Used to create the user interface and handle user interaction.
 
+## Screenshots (might be outdated)
+
+![Screenshot](screenshots/screenshot.PNG)
+
+## What I Learned
+
+- How to use the Android SDK to create a user interface.
+- How to handle user interaction.
+- How to hide and show the keyboard.
+- Getting values of the EditText, RadioGroup, and CheckBox.
+
 ## Installation
 
 The project can be cloned from GitHub and opened in Android Studio.
 
 ```bash
-git clone https://github.com/yourusername/bmi-calculator.git
+git clone https://github.com/prosperinweb/bmi-calculator.git
