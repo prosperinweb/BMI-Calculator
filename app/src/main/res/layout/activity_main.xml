@@ -19,7 +19,7 @@
         android:textStyle="bold" />
 
     <LinearLayout
-        android:id="@+id/unit_selection_section"
+        android:id="@+id/sections_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -29,39 +29,76 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/description_unit_system"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/description_settings_section"
             android:text="@string/unit_system_title"
             android:textColor="@color/dark_blue"
             android:textSize="24sp"
             android:textStyle="bold" />
 
-        <RadioGroup
-            android:id="@+id/unit_system_radio_group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <RadioButton
-                android:id="@+id/metric_radio_button"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
-                android:contentDescription="@string/description_radioBtn_metric"
-                android:text="@string/radioBtn_metric"
+                android:layout_gravity="center_vertical"
+                android:text="@string/unit_select_title"
                 android:textColor="@color/dark_blue"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
 
-            <RadioButton
-                android:id="@+id/imperial_radio_button"
+            <RadioGroup
+                android:id="@+id/unit_system_radio_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/description_radioBtn_imperial"
-                android:text="@string/radioBtn_imperial"
-                android:textColor="@color/dark_blue"
-                android:textSize="16sp" />
+                android:orientation="horizontal">
 
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/metric_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:contentDescription="@string/description_radioBtn_metric"
+                    android:text="@string/radioBtn_metric"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16sp" />
+
+                <RadioButton
+                    android:id="@+id/imperial_radio_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/description_radioBtn_imperial"
+                    android:text="@string/radioBtn_imperial"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="16sp" />
+            </RadioGroup>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/asian_descent_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="26dp"
+                android:text="@string/asian_descent"
+                android:textColor="@color/dark_blue"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/question_mark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descent_checkbox_reason"
+                android:textColor="@color/light_blue"
+                android:textSize="16sp"
+                android:textStyle="italic" />
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -72,53 +109,15 @@
         android:layout_marginBottom="28dp"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/gender_section"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/description_gender_select"
-                android:text="@string/gender_select"
-                android:textColor="@color/light_blue"
-                android:textSize="24sp" />
-
-            <RadioGroup
-                android:id="@+id/gender_radio_group"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/male_radio_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/description_radioBtn_male"
-                    android:text="@string/radioBtn_male"
-                    android:textColor="@color/dark_blue" />
-
-                <RadioButton
-                    android:id="@+id/female_radio_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/description_radioBtn_female"
-                    android:text="@string/radioBtn_female"
-                    android:textColor="@color/dark_blue" />
-
-                <RadioButton
-                    android:id="@+id/other_radio_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@string/description_radioBtn_other"
-                    android:text="@string/radioBtn_other"
-                    android:textColor="@color/dark_blue" />
-
-            </RadioGroup>
-        </LinearLayout>
+            android:contentDescription="@string/description_measurements_section"
+            android:text="@string/measurements_title"
+            android:textColor="@color/dark_blue"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/height_section"

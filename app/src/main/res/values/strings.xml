@@ -4,8 +4,8 @@
     <string name="app_title">@string/app_name</string>
     <string name="description_app_title">\@string/app_title</string>
 
-    <string name="unit_system_title">Unit System</string>
-    <string name="description_unit_system">unit system title</string>
+    <string name="unit_system_title">Settings</string>
+    <string name="description_settings_section">Settings section</string>
     <string name="radioBtn_metric">Metric</string>
     <string name="radioBtn_imperial">Imperial</string>
     <string name="description_radioBtn_metric">metric radio button</string>
@@ -43,4 +43,9 @@
     <string name="description_result_value">result value</string>
     <string name="result_description">You are a healthy weight</string>
     <string name="description_result_description">result description</string>
+    <string name="asian_descent">Asian Descent</string>
+    <string name="unit_select_title">Units: </string>
+    <string name="descent_checkbox_reason">why?</string>
+    <string name="description_measurements_section">measurements section</string>
+    <string name="measurements_title">Measurements</string>
 </resources>

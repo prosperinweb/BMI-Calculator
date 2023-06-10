@@ -1,11 +1,13 @@
 package com.kotlinit.bmicalculator
 
+import android.app.AlertDialog
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
@@ -14,7 +16,6 @@ import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
     private lateinit var unitRadioGroup: RadioGroup
-    private lateinit var genderRadioGroup: RadioGroup
     private lateinit var majorHeightInput: TextInputEditText
     private lateinit var minorHeightInput: TextInputEditText
     private lateinit var weightInput: TextInputEditText
@@ -22,20 +23,17 @@ class MainActivity : AppCompatActivity() {
     private lateinit var resetButton: Button
     private lateinit var resultValue: TextView
     private lateinit var resultDescription: TextView
-
-    private var majorHeight: Double = 0.0
-    private var minorHeight: Double = 0.0
-    private var weight: Double = 0.0
+    private lateinit var asianDescentCheckbox: CheckBox
+    private lateinit var questionMark: TextView
 
     private var unitSystem: String = "metric"
-    private var selectedGender: String = ""
+    private var isAsianDescent: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         unitRadioGroup = findViewById(R.id.unit_system_radio_group)
-        genderRadioGroup = findViewById(R.id.gender_radio_group)
         majorHeightInput = findViewById(R.id.major_height_input)
         minorHeightInput = findViewById(R.id.minor_height_input)
         weightInput = findViewById(R.id.weight_input)
@@ -43,6 +41,8 @@ class MainActivity : AppCompatActivity() {
         resetButton = findViewById(R.id.reset_button)
         resultValue = findViewById(R.id.result_value)
         resultDescription = findViewById(R.id.result_description)
+        asianDescentCheckbox = findViewById(R.id.asian_descent_checkbox)
+        questionMark = findViewById(R.id.question_mark)
 
         unitRadioGroup.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
@@ -62,12 +62,21 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        genderRadioGroup.setOnCheckedChangeListener { _, checkedId ->
-            when (checkedId) {
-                R.id.female_radio_button -> selectedGender = "female"
-                R.id.male_radio_button -> selectedGender = "male"
-                R.id.other_radio_button -> selectedGender = "other"
-            }
+        asianDescentCheckbox.setOnCheckedChangeListener { _, isChecked ->
+            isAsianDescent = isChecked
+        }
+
+        questionMark.setOnClickListener {
+            val message = "This information is required because according to the NCBI, " +
+                    "the cutoffs underestimate the obesity risk in the Asian and South Asian populations, " +
+                    "so their classification has slight alterations."
+
+            val builder = AlertDialog.Builder(this@MainActivity)
+            builder.setMessage(message)
+                .setPositiveButton("OK") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .show()
         }
 
         fun imperialToMetric(majorHeight: Double, minorHeight: Double, weight: Double): Triple<Double, Double, Double> {
@@ -89,22 +98,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        fun getBmiDescription(bmi: Double, gender: String): String {
-            // Modify the ranges based on your requirements
-            return if (gender == "male") {
-                when {
-                    bmi < 20 -> "Underweight"
-                    bmi < 25 -> "Normal"
-                    bmi < 30 -> "Overweight"
-                    else -> "Obese"
-                }
-            } else {
-                when {
-                    bmi < 18.5 -> "Underweight"
-                    bmi < 24 -> "Normal"
-                    bmi < 29 -> "Overweight"
-                    else -> "Obese"
-                }
+        fun getBmiDescription(bmi: Double, isAsianDescent: Boolean): String {
+            return when {
+                bmi < 16.5 -> "Severely underweight"
+                bmi < 18.5 -> "Underweight"
+                bmi < if (isAsianDescent) 23 else 25 -> "Normal weight"
+                bmi < if (isAsianDescent) 25 else 30 -> "Overweight"
+                bmi < 35 -> "Obesity class I"
+                bmi < 40 -> "Obesity class II"
+                else -> "Obesity class III"
             }
         }
 
@@ -143,7 +145,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 else -> {
                     val bmi = calculateBMI(majorHeight, minorHeight, weight, unitSystem)
-                    val bmiDescription = getBmiDescription(bmi, selectedGender)
+                    val bmiDescription = getBmiDescription(bmi, isAsianDescent)
 
                     resultValue.text = String.format("%.2f", bmi)
                     resultDescription.text = bmiDescription
